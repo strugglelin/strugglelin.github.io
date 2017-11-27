@@ -1,0 +1,1030 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DesignPatterns," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="工厂模式 工厂模式定义：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。 工厂模式优点：良好封装性（通过类名创建对象）、易于扩展性（增加具体产品方便）、屏蔽产品类（产品类的实现如何变化，调用者都不需要关心）、典型解耦框架（高层模块值需要知道产品的抽象类，其他的实现类都不用关心）。 1.普通工厂模式1.抽象产品类  public abstract clas">
+<meta name="keywords" content="DesignPatterns">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工厂模式">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/Android/designpatterns/2.工厂模式/index.html">
+<meta property="og:site_name" content="Strugglelin&#39;Blog">
+<meta property="og:description" content="工厂模式 工厂模式定义：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。 工厂模式优点：良好封装性（通过类名创建对象）、易于扩展性（增加具体产品方便）、屏蔽产品类（产品类的实现如何变化，调用者都不需要关心）、典型解耦框架（高层模块值需要知道产品的抽象类，其他的实现类都不用关心）。 1.普通工厂模式1.抽象产品类  public abstract clas">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-27T23:10:46.138Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工厂模式">
+<meta name="twitter:description" content="工厂模式 工厂模式定义：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。 工厂模式优点：良好封装性（通过类名创建对象）、易于扩展性（增加具体产品方便）、屏蔽产品类（产品类的实现如何变化，调用者都不需要关心）、典型解耦框架（高层模块值需要知道产品的抽象类，其他的实现类都不用关心）。 1.普通工厂模式1.抽象产品类  public abstract clas">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/28/Android/designpatterns/2.工厂模式/"/>
+
+
+
+
+
+  <title> 工厂模式 | Strugglelin'Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Strugglelin'Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/Android/designpatterns/2.工厂模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="strugglelin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Strugglelin'Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                工厂模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T04:50:20+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DesignPatterns/" itemprop="url" rel="index">
+                    <span itemprop="name">DesignPatterns</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><ol>
+<li>工厂模式定义：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。</li>
+<li><p>工厂模式优点：良好封装性（通过类名创建对象）、易于扩展性（增加具体产品方便）、屏蔽产品类（产品类的实现如何变化，调用者都不需要关<br>心）、典型解耦框架（高层模块值需要知道产品的抽象类，其他的实<br>现类都不用关心）。</p>
+<h2 id="1-普通工厂模式"><a href="#1-普通工厂模式" class="headerlink" title="1.普通工厂模式"></a>1.普通工厂模式</h2><p>1.抽象产品类</p>
+<p> public abstract class Product {</p>
+<pre><code>// 产品类公有方法
+public void method1() {
+    // 业务逻辑处理
+}
+
+// 抽象方法
+public abstract void method2();
+</code></pre><p> }</p>
+</li>
+</ol>
+<p>2.具体产品类</p>
+<pre><code>public class ConcreteProduct1 extends Product{
+
+    @Override
+    public void method2() {
+        // 业务逻辑处理
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class ConcreteProduct2 extends Product{
+
+    @Override
+    public void method2() {
+        // 业务逻辑处理
+    }
+
+}
+</code></pre><p>3.抽象工厂类</p>
+<pre><code>public abstract class Creator {
+    /*
+     * 创建一个产品对象，其输入参数类型可以自行设置 通常为String、Enum、Class等，当然也可以为空
+     */
+    public abstract &lt;T extends Product&gt; T createProduct(Class&lt;T&gt; c);
+}
+</code></pre><p>4.具体工厂类</p>
+<pre><code>public class ConcreteCreator extends Creator {
+
+    @Override
+    public &lt;T extends Product&gt; T createProduct(Class&lt;T&gt; c) {
+        Product product=null;
+        try {
+            product=(Product) Class.forName(c.getName()).newInstance();
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+            //异常处理
+            e.printStackTrace();
+        }
+        return (T) product;
+    }
+
+}
+</code></pre><p>5.场景类</p>
+<pre><code>public class Client {
+    public static void main(String[] args) {
+        Creator creator = new ConcreteCreator();
+        Product product = creator.createProduct(ConcreteProduct1.class);
+        /*
+         * 继续业务处理
+         */
+    }
+}
+</code></pre><h2 id="2-简单工厂模式"><a href="#2-简单工厂模式" class="headerlink" title="2.简单工厂模式"></a>2.简单工厂模式</h2><p>1.人类</p>
+<pre><code>public interface Human {
+
+    // 每个人种的皮肤都有相应的颜色
+    public void getColor();
+
+    // 人类会说话
+    public void talk();
+}
+</code></pre><p>2.黑人、白人、黄人</p>
+<pre><code>public class BlackHuman implements Human {
+
+    @Override
+    public void getColor() {
+        System.out.println(&quot;黑色人种的皮肤颜色是黑色的！&quot;);
+    }
+
+    @Override
+    public void talk() {
+        System.out.println(&quot;黑人会说话，一般人听不懂。&quot;);
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class WhiteHuman implements Human {
+
+    public void getColor() {
+        System.out.println(&quot;白色人种的皮肤颜色是白色的！&quot;);
+    }
+
+    public void talk() {
+        System.out.println(&quot;白色人种会说话，一般都是但是单字节。&quot;);
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class YellowHuman implements Human {
+
+    public void getColor() {
+        System.out.println(&quot;黄色人种的皮肤颜色是黄色的！&quot;);
+    }
+
+    public void talk() {
+        System.out.println(&quot;黄色人种会说话，一般说的都是双字节。&quot;);
+    }
+
+}
+</code></pre><p>3.人类工厂</p>
+<pre><code>public class HumanFactory {
+
+    public static &lt;T extends Human&gt; T createHuman(Class&lt;T&gt; c) {
+        //定义一个生产的人种
+        Human human = null;
+        try {
+            //产生一个人种
+            human = (Human) Class.forName(c.getName()).newInstance();
+        } catch (Exception e) {
+            System.out.println(&quot;人种生成错误！&quot;);
+        }
+        return (T) human;
+    }
+}
+</code></pre><p>4.测试类</p>
+<pre><code>public class NvWa {
+
+    public static void main(String[] args) {
+        //声明阴阳八卦炉
+        HumanFactory YinYangLu = new HumanFactory();
+        //女娲第一次造人，火候不足，于是白人产生了
+        System.out.println(&quot;--造出的第一批人是白色人种--&quot;);
+        Human whiteHuman = YinYangLu.createHuman(WhiteHuman.class);
+        whiteHuman.getColor();
+        whiteHuman.talk();
+        //女娲第二次造人，火候过足，于是黑人产生了
+        System.out.println(&quot;\n--造出的第二批人是黑色人种--&quot;);
+        Human blackHuman = YinYangLu.createHuman(BlackHuman.class);
+        blackHuman.getColor();
+        blackHuman.talk();
+        //第三次造人，火候刚刚好，于是黄色人种产生了
+        System.out.println(&quot;\n--造出的第三批人是黄色人种--&quot;);
+        Human yellowHuman = YinYangLu.createHuman(YellowHuman.class);
+        yellowHuman.getColor();
+        yellowHuman.talk();
+    }
+
+}
+</code></pre><h2 id="3-多个工厂类"><a href="#3-多个工厂类" class="headerlink" title="3.多个工厂类"></a>3.多个工厂类</h2><p>1.人类</p>
+<p>2.黑人、白人、黄人</p>
+<p>3.抽象人类工厂</p>
+<pre><code>public abstract class AbstractHumanFactory {
+    public abstract Human createHuman();
+}
+</code></pre><p>4.具体人类工厂（黑、白、黄）</p>
+<pre><code>public class BlackHumanFactory extends AbstractHumanFactory {
+
+    @Override
+    public Human createHuman() {
+        return new BlackHuman();
+    }
+
+}
+</code></pre><p>5.测试类</p>
+<pre><code>public class NvWa {
+    public static void main(String[] args) {
+        // 女娲第一次造人，火候不足，于是白色人种产生了
+        System.out.println(&quot;--造出的第一批人是白色人种--&quot;);
+        Human whiteHuman = (new WhiteHumanFactory()).createHuman();
+        whiteHuman.getColor();
+        whiteHuman.talk();
+        // 女娲第二次造人，火候过足，于是黑色人种产生了
+        System.out.println(&quot;\n--造出的第二批人是黑色人种--&quot;);
+        Human blackHuman = (new BlackHumanFactory()).createHuman();
+        blackHuman.getColor();
+        blackHuman.talk();
+        // 第三次造人，火候刚刚好，于是黄色人种产生了
+        System.out.println(&quot;\n--造出的第三批人是黄色人种--&quot;);
+        Human yellowHuman = (new YellowHumanFactory()).createHuman();
+        yellowHuman.getColor();
+        yellowHuman.talk();
+    }
+}
+</code></pre><h2 id="4-延迟加载"><a href="#4-延迟加载" class="headerlink" title="4.延迟加载"></a>4.延迟加载</h2><p>迟初始化（Lazy initialization）：一个对象被消费完毕后，并不立刻释放，工厂类保持其初始状态，等待再次被使用。</p>
+<pre><code>public class ProductFactory {
+
+    private static final Map&lt;String, Product&gt; prMap = new HashMap();
+
+    public static synchronized Product createProduct(String type) throws Exception {
+        Product product = null;
+        // 如果Map中已经有这个对象
+        if (prMap.containsKey(type)) {
+            product = prMap.get(type);
+        } else {
+            if (type.equals(&quot;Product1&quot;)) {
+                product = new ConcreteProduct1();
+            } else {
+                product = new ConcreteProduct2();
+            }
+            // 同时把对象放到缓存容器中
+            prMap.put(type, product);
+        }
+        return product;
+    }
+}
+</code></pre><h2 id="5-抽象工厂模式"><a href="#5-抽象工厂模式" class="headerlink" title="5.抽象工厂模式"></a>5.抽象工厂模式</h2><ol>
+<li>抽象工厂模式（Abstract Factory Pattern）：为创建一组相关或相互依赖的对象提供一个接口，而且无须指定它们的具体类。</li>
+<li>优点:封装性(工厂创建对象，增加一个具体产品方便)、产品族内的约束为非公开状态（具体工厂内实现）</li>
+<li>缺点：产品族扩展困难（增加一个产品C，产品家族由原来的2个增加到3个）</li>
+</ol>
+<p>1.抽象产品类</p>
+<pre><code>public abstract class AbstractProductA {
+
+    // 每个产品共有的方法
+    public void shareMethod() {
+    }
+
+    // 每个产品相同方法，不同实现
+    public abstract void doSomething();
+}
+</code></pre><hr>
+<pre><code>public abstract class AbstractProductB {
+
+    // 每个产品共有的方法
+    public void shareMethod() {
+    }
+
+    // 每个产品相同方法，不同实现
+    public abstract void doSomething();
+}
+</code></pre><p>2.具体产品类</p>
+<pre><code>public class ProductA1 extends AbstractProductA {
+
+    @Override
+    public void doSomething() {
+        System.out.println(&quot;产品A1的实现方法&quot;);
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class ProductA2 extends AbstractProductA {
+
+    @Override
+    public void doSomething() {
+        System.out.println(&quot;产品A2的实现方法&quot;);
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class ProductB1 extends AbstractProductB {
+
+    @Override
+    public void doSomething() {
+        System.out.println(&quot;产品B1的实现方法&quot;);
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class ProductB2 extends AbstractProductB {
+
+    @Override
+    public void doSomething() {
+        System.out.println(&quot;产品B2的实现方法&quot;);
+    }
+
+}
+</code></pre><p>3.抽象工厂类</p>
+<pre><code>public abstract class AbstractCreator {
+
+    // 创建A产品家族
+    public abstract AbstractProductA createProductA();
+
+    // 创建B产品家族
+    public abstract AbstractProductB createProductB();
+}
+</code></pre><p>4.具体工厂类</p>
+<pre><code>public class Creator1 extends AbstractCreator {
+
+    // 只生产产品等级为1的A产品
+    public AbstractProductA createProductA() {
+        return new ProductA1();
+    }
+
+    // 只生产产品等级为1的B产品
+    public AbstractProductB createProductB() {
+        return new ProductB1();
+    }
+}
+</code></pre><hr>
+<pre><code>public class Creator2 extends AbstractCreator {
+
+    // 只生产产品等级为2的A产品
+    public AbstractProductA createProductA() {
+        return new ProductA2();
+    }
+
+    // 只生产产品等级为2的B产品
+    public AbstractProductB createProductB() {
+        return new ProductB2();
+    }
+}
+</code></pre><p>5.测试类</p>
+<pre><code>public class Client {
+    public static void main(String[] args) {
+        // 定义出两个工厂
+        AbstractCreator creator1 = new Creator1();
+        AbstractCreator creator2 = new Creator2();
+        // 产生A1对象
+        AbstractProductA a1 = creator1.createProductA();
+        // 产生A2对象
+        AbstractProductA a2 = creator2.createProductA();
+        // 产生B1对象
+        AbstractProductB b1 = creator1.createProductB();
+        // 产生B2对象
+        AbstractProductB b2 = creator2.createProductB();
+        /*
+         * 然后在这里就可以为所欲为了...
+         */
+    }
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DesignPatterns/" rel="tag"># DesignPatterns</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/08/Android/designpatterns/1.单例模式/" rel="next" title="单例模式">
+                <i class="fa fa-chevron-left"></i> 单例模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="strugglelin" />
+          <p class="site-author-name" itemprop="name">strugglelin</p>
+           
+              <p class="site-description motion-element" itemprop="description">既然选择了远方，便只顾风雨兼程。。。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工厂模式"><span class="nav-number">1.</span> <span class="nav-text">工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-普通工厂模式"><span class="nav-number">1.1.</span> <span class="nav-text">1.普通工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-简单工厂模式"><span class="nav-number">1.2.</span> <span class="nav-text">2.简单工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-多个工厂类"><span class="nav-number">1.3.</span> <span class="nav-text">3.多个工厂类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-延迟加载"><span class="nav-number">1.4.</span> <span class="nav-text">4.延迟加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-抽象工厂模式"><span class="nav-number">1.5.</span> <span class="nav-text">5.抽象工厂模式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">strugglelin</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
