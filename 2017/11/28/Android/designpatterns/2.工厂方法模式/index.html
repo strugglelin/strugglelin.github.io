@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="单例模式单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 1.饿汉式public class Singleton1 {      private static final Singleton1 instance = new Singleton1();      private Singleton1() {     }      public static Singl">
+<meta name="description" content="工厂模式 工厂模式定义：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。 工厂模式优点：良好封装性（通过类名创建对象）、易于扩展性（增加具体产品方便）、屏蔽产品类（产品类的实现如何变化，调用者都不需要关心）、典型解耦框架（高层模块值需要知道产品的抽象类，其他的实现类都不用关心）。  1.普通工厂模式1.抽象产品类 public abstract clas">
 <meta name="keywords" content="DesignPatterns">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例模式">
-<meta property="og:url" content="http://yoursite.com/2017/11/08/Android/designpatterns/1.单例模式/index.html">
+<meta property="og:title" content="工厂模式">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/Android/designpatterns/2.工厂方法模式/index.html">
 <meta property="og:site_name" content="Strugglelin&#39;Blog">
-<meta property="og:description" content="单例模式单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 1.饿汉式public class Singleton1 {      private static final Singleton1 instance = new Singleton1();      private Singleton1() {     }      public static Singl">
+<meta property="og:description" content="工厂模式 工厂模式定义：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。 工厂模式优点：良好封装性（通过类名创建对象）、易于扩展性（增加具体产品方便）、屏蔽产品类（产品类的实现如何变化，调用者都不需要关心）、典型解耦框架（高层模块值需要知道产品的抽象类，其他的实现类都不用关心）。  1.普通工厂模式1.抽象产品类 public abstract clas">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T22:23:14.988Z">
+<meta property="og:updated_time" content="2017-11-28T00:00:15.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例模式">
-<meta name="twitter:description" content="单例模式单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 1.饿汉式public class Singleton1 {      private static final Singleton1 instance = new Singleton1();      private Singleton1() {     }      public static Singl">
+<meta name="twitter:title" content="工厂模式">
+<meta name="twitter:description" content="工厂模式 工厂模式定义：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。 工厂模式优点：良好封装性（通过类名创建对象）、易于扩展性（增加具体产品方便）、屏蔽产品类（产品类的实现如何变化，调用者都不需要关心）、典型解耦框架（高层模块值需要知道产品的抽象类，其他的实现类都不用关心）。  1.普通工厂模式1.抽象产品类 public abstract clas">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/08/Android/designpatterns/1.单例模式/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/28/Android/designpatterns/2.工厂方法模式/"/>
 
 
 
 
 
-  <title> 单例模式 | Strugglelin'Blog </title>
+  <title> 工厂模式 | Strugglelin'Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/Android/designpatterns/1.单例模式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/Android/designpatterns/2.工厂方法模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="strugglelin">
@@ -282,7 +282,7 @@
             
             
               
-                单例模式
+                工厂模式
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T22:45:31+08:00">
-                2017-11-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T04:50:20+08:00">
+                2017-11-28
               </time>
             
 
@@ -355,136 +355,217 @@
       
 
       
-        <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p>
-<h2 id="1-饿汉式"><a href="#1-饿汉式" class="headerlink" title="1.饿汉式"></a>1.饿汉式</h2><pre><code>public class Singleton1 {
+        <h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><ol>
+<li>工厂模式定义：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。</li>
+<li>工厂模式优点：良好封装性（通过类名创建对象）、易于扩展性（增加具体产品方便）、屏蔽产品类（产品类的实现如何变化，调用者都不需要关<br>心）、典型解耦框架（高层模块值需要知道产品的抽象类，其他的实<br>现类都不用关心）。</li>
+</ol>
+<h2 id="1-普通工厂模式"><a href="#1-普通工厂模式" class="headerlink" title="1.普通工厂模式"></a>1.普通工厂模式</h2><p>1.抽象产品类</p>
+<pre><code>public abstract class Product {
 
-    private static final Singleton1 instance = new Singleton1();
-
-    private Singleton1() {
+    // 产品类公有方法
+    public void method1() {
+        // 业务逻辑处理
     }
 
-    public static Singleton1 getInstance() {
-        return instance;
-    }
+    // 抽象方法
+    public abstract void method2();
 }
-</code></pre><h2 id="2-懒汉式-（非线程安全）"><a href="#2-懒汉式-（非线程安全）" class="headerlink" title="2.懒汉式 （非线程安全）"></a>2.懒汉式 （非线程安全）</h2><pre><code>public class Singleton2 {
+</code></pre><p>2.具体产品类</p>
+<pre><code>public class ConcreteProduct1 extends Product{
 
-    private static Singleton2 instance = null;
-
-    private Singleton2() {
+    @Override
+    public void method2() {
+        // 业务逻辑处理
     }
 
-    public static Singleton2 getInstance() {
-        if(null==instance){
-            instance=new Singleton2();
+}
+</code></pre><hr>
+<pre><code>public class ConcreteProduct2 extends Product{
+
+    @Override
+    public void method2() {
+        // 业务逻辑处理
+    }
+
+}
+</code></pre><p>3.抽象工厂类</p>
+<pre><code>public abstract class Creator {
+    /*
+     * 创建一个产品对象，其输入参数类型可以自行设置 通常为String、Enum、Class等，当然也可以为空
+     */
+    public abstract &lt;T extends Product&gt; T createProduct(Class&lt;T&gt; c);
+}
+</code></pre><p>4.具体工厂类</p>
+<pre><code>public class ConcreteCreator extends Creator {
+
+    @Override
+    public &lt;T extends Product&gt; T createProduct(Class&lt;T&gt; c) {
+        Product product=null;
+        try {
+            product=(Product) Class.forName(c.getName()).newInstance();
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+            //异常处理
+            e.printStackTrace();
         }
-        return instance;
+        return (T) product;
+    }
+
+}
+</code></pre><p>5.场景类</p>
+<pre><code>public class Client {
+    public static void main(String[] args) {
+        Creator creator = new ConcreteCreator();
+        Product product = creator.createProduct(ConcreteProduct1.class);
+        /*
+         * 继续业务处理
+         */
     }
 }
-</code></pre><h2 id="3-懒汉式-（线程安全）"><a href="#3-懒汉式-（线程安全）" class="headerlink" title="3.懒汉式 （线程安全）"></a>3.懒汉式 （线程安全）</h2><pre><code>//1.方法加锁 2.方法内加锁 3.双重检验锁
-public class Singleton3 {
+</code></pre><h2 id="2-简单工厂模式"><a href="#2-简单工厂模式" class="headerlink" title="2.简单工厂模式"></a>2.简单工厂模式</h2><p>1.人类</p>
+<pre><code>public interface Human {
 
-    private static Singleton3 instance = null;
+    // 每个人种的皮肤都有相应的颜色
+    public void getColor();
 
-    private Singleton3() {
+    // 人类会说话
+    public void talk();
+}
+</code></pre><p>2.黑人、白人、黄人</p>
+<pre><code>public class BlackHuman implements Human {
+
+    @Override
+    public void getColor() {
+        System.out.println(&quot;黑色人种的皮肤颜色是黑色的！&quot;);
     }
 
-    //1.
-    public static synchronized Singleton3 getInstance() {
-        if (null == instance) {
-            instance = new Singleton3();
+    @Override
+    public void talk() {
+        System.out.println(&quot;黑人会说话，一般人听不懂。&quot;);
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class WhiteHuman implements Human {
+
+    public void getColor() {
+        System.out.println(&quot;白色人种的皮肤颜色是白色的！&quot;);
+    }
+
+    public void talk() {
+        System.out.println(&quot;白色人种会说话，一般都是但是单字节。&quot;);
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class YellowHuman implements Human {
+
+    public void getColor() {
+        System.out.println(&quot;黄色人种的皮肤颜色是黄色的！&quot;);
+    }
+
+    public void talk() {
+        System.out.println(&quot;黄色人种会说话，一般说的都是双字节。&quot;);
+    }
+
+}
+</code></pre><p>3.人类工厂</p>
+<pre><code>public class HumanFactory {
+
+    public static &lt;T extends Human&gt; T createHuman(Class&lt;T&gt; c) {
+        //定义一个生产的人种
+        Human human = null;
+        try {
+            //产生一个人种
+            human = (Human) Class.forName(c.getName()).newInstance();
+        } catch (Exception e) {
+            System.out.println(&quot;人种生成错误！&quot;);
         }
-        return instance;
-    }
-    // 2.
-    // public static Singleton3 getInstance() {
-    // synchronized(Singleton3.class){
-    // if(null==instance){
-    // instance=new Singleton3();
-    // }
-    // }
-    // return instance;
-    // }
-    // 3.
-    // public static Singleton3 getInstance() {
-    // if (instance == null) {
-    // synchronized (Singleton3.class) {
-    // if (instance==null) {
-    // instance = new Singleton3();
-    // }
-    // }
-    //
-    // }
-    // return instance;
-    // }
-}
-</code></pre><h2 id="4-静态内部类"><a href="#4-静态内部类" class="headerlink" title="4.静态内部类"></a>4.静态内部类</h2><pre><code>public class Singleton4 {
-
-    private static class singletonHolder{
-        private static Singleton4 instance = new Singleton4();
-    }
-
-    private Singleton4() {
-    }
-
-    public static Singleton4 getInstance() {
-        return singletonHolder.instance;
+        return (T) human;
     }
 }
-</code></pre><h2 id="5-枚举类"><a href="#5-枚举类" class="headerlink" title="5.枚举类"></a>5.枚举类</h2><pre><code>public enum Singleton5 {
-
-    instance;
-
-    public void doSomething() {
-        //do something...
-    }
-}
-</code></pre><h2 id="补：多实例（设计模式之禅）"><a href="#补：多实例（设计模式之禅）" class="headerlink" title="补：多实例（设计模式之禅）"></a>补：多实例（设计模式之禅）</h2><pre><code>public class Emperor {
-
-    // 定义最多能产生的实例数量
-    private static int maxNumOfEmperor = 2;
-    // 每个皇帝都有名字，使用一个ArrayList来容纳，每个对象的私有属性
-    private static ArrayList&lt;String&gt; nameList = new ArrayList&lt;String&gt;();
-    // 定义一个列表，容纳所有的皇帝实例，考虑线程安全Vector替换ArrayList
-    private static ArrayList&lt;Emperor&gt; emperorList = new ArrayList&lt;Emperor&gt;();
-    // 当前皇帝序列号
-    private static int countNumOfEmperor = 0;
-    // 产生所有的对象
-    static {
-        for (int i = 0; i &lt; maxNumOfEmperor; i++) {
-            emperorList.add(new Emperor(&quot;皇&quot; + (i + 1) + &quot;帝&quot;));
-        }
-    }
-
-    // 传入皇帝名称，建立一个皇帝对象
-    private Emperor(String name) {
-        nameList.add(name);
-    }
-
-    // 随机获得一个皇帝对象
-    public static Emperor getInstance() {
-        Random random = new Random();
-        // 随机拉出一个皇帝，只要是个精神领袖就成
-        countNumOfEmperor = random.nextInt(maxNumOfEmperor);
-        return emperorList.get(countNumOfEmperor);
-    }
-
-    // 皇帝发话了
-    public static void say() {
-        System.out.println(nameList.get(countNumOfEmperor));
-    }
+</code></pre><p>4.测试类</p>
+<pre><code>public class NvWa {
 
     public static void main(String[] args) {
-        // 定义5个大臣
-        int ministerNum = 5;
-        for (int i = 0; i &lt; ministerNum; i++) {
-            Emperor emperor = Emperor.getInstance();
-            System.out.print(&quot;第&quot; + (i + 1) + &quot;个大臣参拜的是：&quot;);
-            emperor.say();
-        }
+        //声明阴阳八卦炉
+        HumanFactory YinYangLu = new HumanFactory();
+        //女娲第一次造人，火候不足，于是白人产生了
+        System.out.println(&quot;--造出的第一批人是白色人种--&quot;);
+        Human whiteHuman = YinYangLu.createHuman(WhiteHuman.class);
+        whiteHuman.getColor();
+        whiteHuman.talk();
+        //女娲第二次造人，火候过足，于是黑人产生了
+        System.out.println(&quot;\n--造出的第二批人是黑色人种--&quot;);
+        Human blackHuman = YinYangLu.createHuman(BlackHuman.class);
+        blackHuman.getColor();
+        blackHuman.talk();
+        //第三次造人，火候刚刚好，于是黄色人种产生了
+        System.out.println(&quot;\n--造出的第三批人是黄色人种--&quot;);
+        Human yellowHuman = YinYangLu.createHuman(YellowHuman.class);
+        yellowHuman.getColor();
+        yellowHuman.talk();
+    }
+
+}
+</code></pre><h2 id="3-多个工厂类"><a href="#3-多个工厂类" class="headerlink" title="3.多个工厂类"></a>3.多个工厂类</h2><p>1.人类</p>
+<p>2.黑人、白人、黄人</p>
+<p>3.抽象人类工厂</p>
+<pre><code>public abstract class AbstractHumanFactory {
+    public abstract Human createHuman();
+}
+</code></pre><p>4.具体人类工厂（黑、白、黄）</p>
+<pre><code>public class BlackHumanFactory extends AbstractHumanFactory {
+
+    @Override
+    public Human createHuman() {
+        return new BlackHuman();
+    }
+
+}
+</code></pre><p>5.测试类</p>
+<pre><code>public class NvWa {
+    public static void main(String[] args) {
+        // 女娲第一次造人，火候不足，于是白色人种产生了
+        System.out.println(&quot;--造出的第一批人是白色人种--&quot;);
+        Human whiteHuman = (new WhiteHumanFactory()).createHuman();
+        whiteHuman.getColor();
+        whiteHuman.talk();
+        // 女娲第二次造人，火候过足，于是黑色人种产生了
+        System.out.println(&quot;\n--造出的第二批人是黑色人种--&quot;);
+        Human blackHuman = (new BlackHumanFactory()).createHuman();
+        blackHuman.getColor();
+        blackHuman.talk();
+        // 第三次造人，火候刚刚好，于是黄色人种产生了
+        System.out.println(&quot;\n--造出的第三批人是黄色人种--&quot;);
+        Human yellowHuman = (new YellowHumanFactory()).createHuman();
+        yellowHuman.getColor();
+        yellowHuman.talk();
     }
 }
-</code></pre>
+</code></pre><h2 id="4-延迟加载"><a href="#4-延迟加载" class="headerlink" title="4.延迟加载"></a>4.延迟加载</h2><p>迟初始化（Lazy initialization）：一个对象被消费完毕后，并不立刻释放，工厂类保持其初始状态，等待再次被使用。</p>
+<pre><code>public class ProductFactory {
+
+    private static final Map&lt;String, Product&gt; prMap = new HashMap();
+
+    public static synchronized Product createProduct(String type) throws Exception {
+        Product product = null;
+        // 如果Map中已经有这个对象
+        if (prMap.containsKey(type)) {
+            product = prMap.get(type);
+        } else {
+            if (type.equals(&quot;Product1&quot;)) {
+                product = new ConcreteProduct1();
+            } else {
+                product = new ConcreteProduct2();
+            }
+            // 同时把对象放到缓存容器中
+            prMap.put(type, product);
+        }
+        return product;
+    }
+}
+</code></pre><p>注：《设计模式之禅》笔记</p>
+
       
     </div>
 
@@ -526,14 +607,18 @@ public class Singleton3 {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/11/08/Android/designpatterns/1.单例模式/" rel="next" title="单例模式">
+                <i class="fa fa-chevron-left"></i> 单例模式
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/28/Android/designpatterns/2.工厂方法模式/" rel="prev" title="工厂模式">
-                工厂模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/28/Android/designpatterns/3.抽象工厂模式/" rel="prev" title="抽象工厂模式">
+                抽象工厂模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -663,7 +748,7 @@ public class Singleton3 {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-饿汉式"><span class="nav-number">1.1.</span> <span class="nav-text">1.饿汉式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-懒汉式-（非线程安全）"><span class="nav-number">1.2.</span> <span class="nav-text">2.懒汉式 （非线程安全）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-懒汉式-（线程安全）"><span class="nav-number">1.3.</span> <span class="nav-text">3.懒汉式 （线程安全）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-静态内部类"><span class="nav-number">1.4.</span> <span class="nav-text">4.静态内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-枚举类"><span class="nav-number">1.5.</span> <span class="nav-text">5.枚举类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补：多实例（设计模式之禅）"><span class="nav-number">1.6.</span> <span class="nav-text">补：多实例（设计模式之禅）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工厂模式"><span class="nav-number">1.</span> <span class="nav-text">工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-普通工厂模式"><span class="nav-number">1.1.</span> <span class="nav-text">1.普通工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-简单工厂模式"><span class="nav-number">1.2.</span> <span class="nav-text">2.简单工厂模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-多个工厂类"><span class="nav-number">1.3.</span> <span class="nav-text">3.多个工厂类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-延迟加载"><span class="nav-number">1.4.</span> <span class="nav-text">4.延迟加载</span></a></li></ol></li></ol></div>
             
 
           </div>

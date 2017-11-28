@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="单例模式单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 1.饿汉式public class Singleton1 {      private static final Singleton1 instance = new Singleton1();      private Singleton1() {     }      public static Singl">
+<meta name="description" content="抽象工厂模式3.抽象工厂模式 抽象工厂模式（Abstract Factory Pattern）：为创建一组相关或相互依赖的对象提供一个接口，而且无须指定它们的具体类。 优点:封装性(工厂创建对象，增加一个具体产品方便)、产品族内的约束为非公开状态（具体工厂内实现） 缺点：产品族扩展困难（增加一个产品C，产品家族由原来的2个增加到3个）  1.抽象产品类 public abstract class">
 <meta name="keywords" content="DesignPatterns">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例模式">
-<meta property="og:url" content="http://yoursite.com/2017/11/08/Android/designpatterns/1.单例模式/index.html">
+<meta property="og:title" content="抽象工厂模式">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/Android/designpatterns/3.抽象工厂模式/index.html">
 <meta property="og:site_name" content="Strugglelin&#39;Blog">
-<meta property="og:description" content="单例模式单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 1.饿汉式public class Singleton1 {      private static final Singleton1 instance = new Singleton1();      private Singleton1() {     }      public static Singl">
+<meta property="og:description" content="抽象工厂模式3.抽象工厂模式 抽象工厂模式（Abstract Factory Pattern）：为创建一组相关或相互依赖的对象提供一个接口，而且无须指定它们的具体类。 优点:封装性(工厂创建对象，增加一个具体产品方便)、产品族内的约束为非公开状态（具体工厂内实现） 缺点：产品族扩展困难（增加一个产品C，产品家族由原来的2个增加到3个）  1.抽象产品类 public abstract class">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T22:23:14.988Z">
+<meta property="og:updated_time" content="2017-11-27T23:59:30.987Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例模式">
-<meta name="twitter:description" content="单例模式单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 1.饿汉式public class Singleton1 {      private static final Singleton1 instance = new Singleton1();      private Singleton1() {     }      public static Singl">
+<meta name="twitter:title" content="抽象工厂模式">
+<meta name="twitter:description" content="抽象工厂模式3.抽象工厂模式 抽象工厂模式（Abstract Factory Pattern）：为创建一组相关或相互依赖的对象提供一个接口，而且无须指定它们的具体类。 优点:封装性(工厂创建对象，增加一个具体产品方便)、产品族内的约束为非公开状态（具体工厂内实现） 缺点：产品族扩展困难（增加一个产品C，产品家族由原来的2个增加到3个）  1.抽象产品类 public abstract class">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/08/Android/designpatterns/1.单例模式/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/28/Android/designpatterns/3.抽象工厂模式/"/>
 
 
 
 
 
-  <title> 单例模式 | Strugglelin'Blog </title>
+  <title> 抽象工厂模式 | Strugglelin'Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/Android/designpatterns/1.单例模式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/Android/designpatterns/3.抽象工厂模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="strugglelin">
@@ -282,7 +282,7 @@
             
             
               
-                单例模式
+                抽象工厂模式
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T22:45:31+08:00">
-                2017-11-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T07:54:02+08:00">
+                2017-11-28
               </time>
             
 
@@ -355,136 +355,123 @@
       
 
       
-        <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p>
-<h2 id="1-饿汉式"><a href="#1-饿汉式" class="headerlink" title="1.饿汉式"></a>1.饿汉式</h2><pre><code>public class Singleton1 {
+        <h1 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h1><h2 id="3-抽象工厂模式"><a href="#3-抽象工厂模式" class="headerlink" title="3.抽象工厂模式"></a>3.抽象工厂模式</h2><ol>
+<li>抽象工厂模式（Abstract Factory Pattern）：为创建一组相关或相互依赖的对象提供一个接口，而且无须指定它们的具体类。</li>
+<li>优点:封装性(工厂创建对象，增加一个具体产品方便)、产品族内的约束为非公开状态（具体工厂内实现）</li>
+<li>缺点：产品族扩展困难（增加一个产品C，产品家族由原来的2个增加到3个）</li>
+</ol>
+<p>1.抽象产品类</p>
+<pre><code>public abstract class AbstractProductA {
 
-    private static final Singleton1 instance = new Singleton1();
-
-    private Singleton1() {
+    // 每个产品共有的方法
+    public void shareMethod() {
     }
 
-    public static Singleton1 getInstance() {
-        return instance;
-    }
+    // 每个产品相同方法，不同实现
+    public abstract void doSomething();
 }
-</code></pre><h2 id="2-懒汉式-（非线程安全）"><a href="#2-懒汉式-（非线程安全）" class="headerlink" title="2.懒汉式 （非线程安全）"></a>2.懒汉式 （非线程安全）</h2><pre><code>public class Singleton2 {
+</code></pre><hr>
+<pre><code>public abstract class AbstractProductB {
 
-    private static Singleton2 instance = null;
-
-    private Singleton2() {
+    // 每个产品共有的方法
+    public void shareMethod() {
     }
 
-    public static Singleton2 getInstance() {
-        if(null==instance){
-            instance=new Singleton2();
-        }
-        return instance;
-    }
+    // 每个产品相同方法，不同实现
+    public abstract void doSomething();
 }
-</code></pre><h2 id="3-懒汉式-（线程安全）"><a href="#3-懒汉式-（线程安全）" class="headerlink" title="3.懒汉式 （线程安全）"></a>3.懒汉式 （线程安全）</h2><pre><code>//1.方法加锁 2.方法内加锁 3.双重检验锁
-public class Singleton3 {
+</code></pre><p>2.具体产品类</p>
+<pre><code>public class ProductA1 extends AbstractProductA {
 
-    private static Singleton3 instance = null;
-
-    private Singleton3() {
-    }
-
-    //1.
-    public static synchronized Singleton3 getInstance() {
-        if (null == instance) {
-            instance = new Singleton3();
-        }
-        return instance;
-    }
-    // 2.
-    // public static Singleton3 getInstance() {
-    // synchronized(Singleton3.class){
-    // if(null==instance){
-    // instance=new Singleton3();
-    // }
-    // }
-    // return instance;
-    // }
-    // 3.
-    // public static Singleton3 getInstance() {
-    // if (instance == null) {
-    // synchronized (Singleton3.class) {
-    // if (instance==null) {
-    // instance = new Singleton3();
-    // }
-    // }
-    //
-    // }
-    // return instance;
-    // }
-}
-</code></pre><h2 id="4-静态内部类"><a href="#4-静态内部类" class="headerlink" title="4.静态内部类"></a>4.静态内部类</h2><pre><code>public class Singleton4 {
-
-    private static class singletonHolder{
-        private static Singleton4 instance = new Singleton4();
-    }
-
-    private Singleton4() {
-    }
-
-    public static Singleton4 getInstance() {
-        return singletonHolder.instance;
-    }
-}
-</code></pre><h2 id="5-枚举类"><a href="#5-枚举类" class="headerlink" title="5.枚举类"></a>5.枚举类</h2><pre><code>public enum Singleton5 {
-
-    instance;
-
+    @Override
     public void doSomething() {
-        //do something...
+        System.out.println(&quot;产品A1的实现方法&quot;);
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class ProductA2 extends AbstractProductA {
+
+    @Override
+    public void doSomething() {
+        System.out.println(&quot;产品A2的实现方法&quot;);
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class ProductB1 extends AbstractProductB {
+
+    @Override
+    public void doSomething() {
+        System.out.println(&quot;产品B1的实现方法&quot;);
+    }
+
+}
+</code></pre><hr>
+<pre><code>public class ProductB2 extends AbstractProductB {
+
+    @Override
+    public void doSomething() {
+        System.out.println(&quot;产品B2的实现方法&quot;);
+    }
+
+}
+</code></pre><p>3.抽象工厂类</p>
+<pre><code>public abstract class AbstractCreator {
+
+    // 创建A产品家族
+    public abstract AbstractProductA createProductA();
+
+    // 创建B产品家族
+    public abstract AbstractProductB createProductB();
+}
+</code></pre><p>4.具体工厂类</p>
+<pre><code>public class Creator1 extends AbstractCreator {
+
+    // 只生产产品等级为1的A产品
+    public AbstractProductA createProductA() {
+        return new ProductA1();
+    }
+
+    // 只生产产品等级为1的B产品
+    public AbstractProductB createProductB() {
+        return new ProductB1();
     }
 }
-</code></pre><h2 id="补：多实例（设计模式之禅）"><a href="#补：多实例（设计模式之禅）" class="headerlink" title="补：多实例（设计模式之禅）"></a>补：多实例（设计模式之禅）</h2><pre><code>public class Emperor {
+</code></pre><hr>
+<pre><code>public class Creator2 extends AbstractCreator {
 
-    // 定义最多能产生的实例数量
-    private static int maxNumOfEmperor = 2;
-    // 每个皇帝都有名字，使用一个ArrayList来容纳，每个对象的私有属性
-    private static ArrayList&lt;String&gt; nameList = new ArrayList&lt;String&gt;();
-    // 定义一个列表，容纳所有的皇帝实例，考虑线程安全Vector替换ArrayList
-    private static ArrayList&lt;Emperor&gt; emperorList = new ArrayList&lt;Emperor&gt;();
-    // 当前皇帝序列号
-    private static int countNumOfEmperor = 0;
-    // 产生所有的对象
-    static {
-        for (int i = 0; i &lt; maxNumOfEmperor; i++) {
-            emperorList.add(new Emperor(&quot;皇&quot; + (i + 1) + &quot;帝&quot;));
-        }
+    // 只生产产品等级为2的A产品
+    public AbstractProductA createProductA() {
+        return new ProductA2();
     }
 
-    // 传入皇帝名称，建立一个皇帝对象
-    private Emperor(String name) {
-        nameList.add(name);
+    // 只生产产品等级为2的B产品
+    public AbstractProductB createProductB() {
+        return new ProductB2();
     }
-
-    // 随机获得一个皇帝对象
-    public static Emperor getInstance() {
-        Random random = new Random();
-        // 随机拉出一个皇帝，只要是个精神领袖就成
-        countNumOfEmperor = random.nextInt(maxNumOfEmperor);
-        return emperorList.get(countNumOfEmperor);
-    }
-
-    // 皇帝发话了
-    public static void say() {
-        System.out.println(nameList.get(countNumOfEmperor));
-    }
-
+}
+</code></pre><p>5.测试类</p>
+<pre><code>public class Client {
     public static void main(String[] args) {
-        // 定义5个大臣
-        int ministerNum = 5;
-        for (int i = 0; i &lt; ministerNum; i++) {
-            Emperor emperor = Emperor.getInstance();
-            System.out.print(&quot;第&quot; + (i + 1) + &quot;个大臣参拜的是：&quot;);
-            emperor.say();
-        }
+        // 定义出两个工厂
+        AbstractCreator creator1 = new Creator1();
+        AbstractCreator creator2 = new Creator2();
+        // 产生A1对象
+        AbstractProductA a1 = creator1.createProductA();
+        // 产生A2对象
+        AbstractProductA a2 = creator2.createProductA();
+        // 产生B1对象
+        AbstractProductB b1 = creator1.createProductB();
+        // 产生B2对象
+        AbstractProductB b2 = creator2.createProductB();
+        /*
+         * 然后在这里就可以为所欲为了...
+         */
     }
 }
-</code></pre>
+</code></pre><p>注：《设计模式之禅》笔记</p>
+
       
     </div>
 
@@ -526,15 +513,15 @@ public class Singleton3 {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/11/28/Android/designpatterns/2.工厂方法模式/" rel="next" title="工厂模式">
+                <i class="fa fa-chevron-left"></i> 工厂模式
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/28/Android/designpatterns/2.工厂方法模式/" rel="prev" title="工厂模式">
-                工厂模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -663,7 +650,7 @@ public class Singleton3 {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-饿汉式"><span class="nav-number">1.1.</span> <span class="nav-text">1.饿汉式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-懒汉式-（非线程安全）"><span class="nav-number">1.2.</span> <span class="nav-text">2.懒汉式 （非线程安全）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-懒汉式-（线程安全）"><span class="nav-number">1.3.</span> <span class="nav-text">3.懒汉式 （线程安全）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-静态内部类"><span class="nav-number">1.4.</span> <span class="nav-text">4.静态内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-枚举类"><span class="nav-number">1.5.</span> <span class="nav-text">5.枚举类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补：多实例（设计模式之禅）"><span class="nav-number">1.6.</span> <span class="nav-text">补：多实例（设计模式之禅）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#抽象工厂模式"><span class="nav-number">1.</span> <span class="nav-text">抽象工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-抽象工厂模式"><span class="nav-number">1.1.</span> <span class="nav-text">3.抽象工厂模式</span></a></li></ol></li></ol></div>
             
 
           </div>
