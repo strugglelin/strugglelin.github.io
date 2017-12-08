@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="单例模式单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 1.饿汉式public class Singleton1 {      private static final Singleton1 instance = new Singleton1();      private Singleton1() {     }      public static Singl">
+<meta name="description" content="模板方法模式 定义：定义一个操作中的算法的框架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。 优点：封装不变部分，扩展可变部分；提取公共部分代码，便于维护；行为由父类控制，子类实现。 缺点：抽象类定义了部分抽象方法，由子类实现，子类执行的结果影响了父类的结果，也就是子类对父类产生了影响。  通用模板1.抽象模板类 public abstract cla">
 <meta name="keywords" content="DesignPatterns">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例模式">
-<meta property="og:url" content="http://yoursite.com/2017/11/08/Android/designpatterns/1.单例模式/index.html">
+<meta property="og:title" content="模板方法模式">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/Android/designpatterns/4.模板方法模式/index.html">
 <meta property="og:site_name" content="Strugglelin&#39;Blog">
-<meta property="og:description" content="单例模式单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 1.饿汉式public class Singleton1 {      private static final Singleton1 instance = new Singleton1();      private Singleton1() {     }      public static Singl">
+<meta property="og:description" content="模板方法模式 定义：定义一个操作中的算法的框架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。 优点：封装不变部分，扩展可变部分；提取公共部分代码，便于维护；行为由父类控制，子类实现。 缺点：抽象类定义了部分抽象方法，由子类实现，子类执行的结果影响了父类的结果，也就是子类对父类产生了影响。  通用模板1.抽象模板类 public abstract cla">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T22:23:14.988Z">
+<meta property="og:updated_time" content="2017-12-07T19:48:50.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例模式">
-<meta name="twitter:description" content="单例模式单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 1.饿汉式public class Singleton1 {      private static final Singleton1 instance = new Singleton1();      private Singleton1() {     }      public static Singl">
+<meta name="twitter:title" content="模板方法模式">
+<meta name="twitter:description" content="模板方法模式 定义：定义一个操作中的算法的框架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。 优点：封装不变部分，扩展可变部分；提取公共部分代码，便于维护；行为由父类控制，子类实现。 缺点：抽象类定义了部分抽象方法，由子类实现，子类执行的结果影响了父类的结果，也就是子类对父类产生了影响。  通用模板1.抽象模板类 public abstract cla">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/08/Android/designpatterns/1.单例模式/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/28/Android/designpatterns/4.模板方法模式/"/>
 
 
 
 
 
-  <title> 单例模式 | Strugglelin'Blog </title>
+  <title> 模板方法模式 | Strugglelin'Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/08/Android/designpatterns/1.单例模式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/Android/designpatterns/4.模板方法模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="strugglelin">
@@ -282,7 +282,7 @@
             
             
               
-                单例模式
+                模板方法模式
               
             
           </h1>
@@ -297,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T22:45:31+08:00">
-                2017-11-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T13:45:54+08:00">
+                2017-11-28
               </time>
             
 
@@ -355,136 +355,66 @@
       
 
       
-        <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>单例模式定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p>
-<h2 id="1-饿汉式"><a href="#1-饿汉式" class="headerlink" title="1.饿汉式"></a>1.饿汉式</h2><pre><code>public class Singleton1 {
+        <h1 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h1><ol>
+<li>定义：定义一个操作中的算法的框架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</li>
+<li>优点：封装不变部分，扩展可变部分；提取公共部分代码，便于维护；行为由父类控制，子类实现。</li>
+<li>缺点：抽象类定义了部分抽象方法，由子类实现，子类执行的结果影响了父类的结果，也就是子类对父类产生了影响。</li>
+</ol>
+<h2 id="通用模板"><a href="#通用模板" class="headerlink" title="通用模板"></a>通用模板</h2><p>1.抽象模板类</p>
+<pre><code>public abstract class AbstractClass {
+    // 基本方法
+    protected abstract void doSomething();
 
-    private static final Singleton1 instance = new Singleton1();
+    // 基本方法
+    protected abstract void doAnything();
 
-    private Singleton1() {
-    }
-
-    public static Singleton1 getInstance() {
-        return instance;
-    }
-}
-</code></pre><h2 id="2-懒汉式-（非线程安全）"><a href="#2-懒汉式-（非线程安全）" class="headerlink" title="2.懒汉式 （非线程安全）"></a>2.懒汉式 （非线程安全）</h2><pre><code>public class Singleton2 {
-
-    private static Singleton2 instance = null;
-
-    private Singleton2() {
-    }
-
-    public static Singleton2 getInstance() {
-        if(null==instance){
-            instance=new Singleton2();
-        }
-        return instance;
+    // 模板方法
+    public void templateMethod() {
+        /*
+         * 调用基本方法，完成相关的逻辑
+         */
+        this.doAnything();
+        this.doSomething();
     }
 }
-</code></pre><h2 id="3-懒汉式-（线程安全）"><a href="#3-懒汉式-（线程安全）" class="headerlink" title="3.懒汉式 （线程安全）"></a>3.懒汉式 （线程安全）</h2><pre><code>//1.方法加锁 2.方法内加锁 3.双重检验锁
-public class Singleton3 {
+</code></pre><p>2.具体模板类</p>
+<pre><code>public class ConcreteClass1 extends AbstractClass {
 
-    private static Singleton3 instance = null;
-
-    private Singleton3() {
+    // 实现基本方法
+    protected void doAnything() {
+        // 业务逻辑处理
     }
 
-    //1.
-    public static synchronized Singleton3 getInstance() {
-        if (null == instance) {
-            instance = new Singleton3();
-        }
-        return instance;
+    protected void doSomething() {
+        // 业务逻辑处理
     }
-    // 2.
-    // public static Singleton3 getInstance() {
-    // synchronized(Singleton3.class){
-    // if(null==instance){
-    // instance=new Singleton3();
-    // }
-    // }
-    // return instance;
-    // }
-    // 3.
-    // public static Singleton3 getInstance() {
-    // if (instance == null) {
-    // synchronized (Singleton3.class) {
-    // if (instance==null) {
-    // instance = new Singleton3();
-    // }
-    // }
-    //
-    // }
-    // return instance;
-    // }
+
 }
-</code></pre><h2 id="4-静态内部类"><a href="#4-静态内部类" class="headerlink" title="4.静态内部类"></a>4.静态内部类</h2><pre><code>public class Singleton4 {
+</code></pre><hr>
+<pre><code>public class ConcreteClass2 extends AbstractClass {
 
-    private static class singletonHolder{
-        private static Singleton4 instance = new Singleton4();
+    // 实现基本方法
+    protected void doAnything() {
+        // 业务逻辑处理
     }
 
-    private Singleton4() {
+    protected void doSomething() {
+        // 业务逻辑处理
     }
 
-    public static Singleton4 getInstance() {
-        return singletonHolder.instance;
-    }
 }
-</code></pre><h2 id="5-枚举类"><a href="#5-枚举类" class="headerlink" title="5.枚举类"></a>5.枚举类</h2><pre><code>public enum Singleton5 {
-
-    instance;
-
-    public void doSomething() {
-        //do something...
-    }
-}
-</code></pre><h2 id="补：多实例（设计模式之禅）"><a href="#补：多实例（设计模式之禅）" class="headerlink" title="补：多实例（设计模式之禅）"></a>补：多实例（设计模式之禅）</h2><pre><code>public class Emperor {
-
-    // 定义最多能产生的实例数量
-    private static int maxNumOfEmperor = 2;
-    // 每个皇帝都有名字，使用一个ArrayList来容纳，每个对象的私有属性
-    private static ArrayList&lt;String&gt; nameList = new ArrayList&lt;String&gt;();
-    // 定义一个列表，容纳所有的皇帝实例，考虑线程安全Vector替换ArrayList
-    private static ArrayList&lt;Emperor&gt; emperorList = new ArrayList&lt;Emperor&gt;();
-    // 当前皇帝序列号
-    private static int countNumOfEmperor = 0;
-    // 产生所有的对象
-    static {
-        for (int i = 0; i &lt; maxNumOfEmperor; i++) {
-            emperorList.add(new Emperor(&quot;皇&quot; + (i + 1) + &quot;帝&quot;));
-        }
-    }
-
-    // 传入皇帝名称，建立一个皇帝对象
-    private Emperor(String name) {
-        nameList.add(name);
-    }
-
-    // 随机获得一个皇帝对象
-    public static Emperor getInstance() {
-        Random random = new Random();
-        // 随机拉出一个皇帝，只要是个精神领袖就成
-        countNumOfEmperor = random.nextInt(maxNumOfEmperor);
-        return emperorList.get(countNumOfEmperor);
-    }
-
-    // 皇帝发话了
-    public static void say() {
-        System.out.println(nameList.get(countNumOfEmperor));
-    }
-
+</code></pre><p>3.场景类</p>
+<pre><code>public class Client {
     public static void main(String[] args) {
-        // 定义5个大臣
-        int ministerNum = 5;
-        for (int i = 0; i &lt; ministerNum; i++) {
-            Emperor emperor = Emperor.getInstance();
-            System.out.print(&quot;第&quot; + (i + 1) + &quot;个大臣参拜的是：&quot;);
-            emperor.say();
-        }
+        AbstractClass class1 = new ConcreteClass1();
+        AbstractClass class2 = new ConcreteClass2();
+        // 调用模板方法
+        class1.templateMethod();
+        class2.templateMethod();
     }
 }
-</code></pre>
+</code></pre><p>注：《设计模式之禅》笔记</p>
+
       
     </div>
 
@@ -526,14 +456,18 @@ public class Singleton3 {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/11/28/Android/designpatterns/3.抽象工厂模式/" rel="next" title="抽象工厂模式">
+                <i class="fa fa-chevron-left"></i> 抽象工厂模式
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/28/Android/designpatterns/2.工厂方法模式/" rel="prev" title="工厂模式">
-                工厂模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/08/Android/designpatterns/5.建造者模式/" rel="prev" title="建造者模式">
+                建造者模式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -663,7 +597,7 @@ public class Singleton3 {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-饿汉式"><span class="nav-number">1.1.</span> <span class="nav-text">1.饿汉式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-懒汉式-（非线程安全）"><span class="nav-number">1.2.</span> <span class="nav-text">2.懒汉式 （非线程安全）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-懒汉式-（线程安全）"><span class="nav-number">1.3.</span> <span class="nav-text">3.懒汉式 （线程安全）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-静态内部类"><span class="nav-number">1.4.</span> <span class="nav-text">4.静态内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-枚举类"><span class="nav-number">1.5.</span> <span class="nav-text">5.枚举类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补：多实例（设计模式之禅）"><span class="nav-number">1.6.</span> <span class="nav-text">补：多实例（设计模式之禅）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模板方法模式"><span class="nav-number">1.</span> <span class="nav-text">模板方法模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通用模板"><span class="nav-number">1.1.</span> <span class="nav-text">通用模板</span></a></li></ol></li></ol></div>
             
 
           </div>
